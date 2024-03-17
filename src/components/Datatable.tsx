@@ -82,16 +82,16 @@ const DataTable = () => {
                                     checked={selectionModel.includes(project.id)}
                                     onChange={() => handleSelectionChange(project.id)}
                                 />
-                                {project.programming_languages && checkImageExists("/public/default.jpg") ? (
+                                {project.programming_languages && checkImageExists(`/src/assets/images/${project.programming_languages}.jpg`) ? (
                                     <img
-                                        src={`/public/${project.programming_languages}.jpg`}
+                                        src={`/src/assets/images/${project.programming_languages}.jpg`}
                                         className="mx-auto mb-3"
                                         style={{ maxWidth: '40%', height: 'auto' }}
                                         alt={project.programming_languages}
                                     />
                                 ) : (
                                     <img
-                                        src="/public/default.jpg"
+                                        src="/src/assets/images/default.jpg"
                                         className="mx-auto mb-3"
                                         style={{ maxWidth: '40%', height: 'auto' }}
                                         alt="Default"
