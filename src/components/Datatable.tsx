@@ -72,17 +72,21 @@ const DataTable = () => {
                                     checked={selectionModel.includes(project.id)}
                                     onChange={() => handleSelectionChange(project.id)}
                                 />
-                                <div
-                                    className="mx-auto mb-3"
-                                    style={{ 
-                                        maxWidth: '40%', 
-                                        height: 'auto',
-                                        backgroundImage: `url('../assets/images/${project.programming_languages}.jpg')`,
-                                        backgroundRepeat: 'no-repeat',
-                                        backgroundSize: 'cover',
-                                        backgroundPosition: 'center',
-                                    }}
-                                />
+                                {project.programming_languages ? (
+                                    <img
+                                        src={`https://raw.githubusercontent.com/ZCosco/Final_Portfolio/main/src/assets/images/${project.programming_languages}.jpg`}
+                                        className="mx-auto mb-3"
+                                        style={{ maxWidth: '40%', height: 'auto' }}
+                                        alt={project.programming_languages}
+                                    />
+                                ) : (
+                                    <img
+                                        src="https://raw.githubusercontent.com/ZCosco/Final_Portfolio/main/src/assets/images/default.jpg"
+                                        className="mx-auto mb-3"
+                                        style={{ maxWidth: '40%', height: 'auto' }}
+                                        alt="Default"
+                                    />
+                                )}
                                 <Typography variant="h3" gutterBottom align="center">{project.project_name}</Typography>
                                 <Typography variant="h5" gutterBottom align="center" className="my-2">{project.programming_languages}</Typography>
                                 <Typography variant="h6" gutterBottom align="center" className="my-2">{project.description}</Typography>
