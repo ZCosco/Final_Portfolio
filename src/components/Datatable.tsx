@@ -79,9 +79,9 @@ const DataTable = () => {
                                     checked={selectionModel.includes(project.id)}
                                     onChange={() => handleSelectionChange(project.id)}
                                 />
-                                {project.programming_languages && checkImageExists(`https://raw.githubusercontent.com/ZCosco/Final_Portfolio/main/src/assets/images/${project.programming_languages}`) ? (
+                                {project.programming_languages && checkImageExists(`https://raw.githubusercontent.com/ZCosco/Final_Portfolio/main/src/assets/images/HTML.jpg`) ? (
                                     <img
-                                        src={`https://raw.githubusercontent.com/ZCosco/Final_Portfolio/main/src/assets/images/${project.programming_languages}`}
+                                        src={`https://raw.githubusercontent.com/ZCosco/Final_Portfolio/main/src/assets/images/HTML.jpg`}
                                         className="mx-auto mb-3"
                                         style={{ maxWidth: '40%', height: 'auto' }}
                                         alt={project.programming_languages}
