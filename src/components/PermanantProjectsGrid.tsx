@@ -6,7 +6,7 @@ const PermanentProjectsGrid = () => {
 
     return (
         <div className="container mx-auto mb-10">
-            <h2 className="p-8 bg-black text-white my-2 rounded text-6xl text-center">Permanent Projects</h2>
+            <h2 className="p-8 bg-black text-white my-2 rounded text-6xl text-center">Coding Temple Projects</h2>
             <Grid container spacing={3}>
                 {ctprojectData.map((project) => (
                     <Grid item xs={4} sm={4} md={6} lg={6} key={project.id}>

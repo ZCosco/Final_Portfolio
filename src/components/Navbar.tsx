@@ -1,85 +1,34 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Button from './Button';
 import { useAuth0 } from '@auth0/auth0-react';
 
 function Navbar() {
-    const [isVisible, setIsVisible] = useState(false);
     const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
-    const signOutOnClick = () => {
+    const signOut = () => {
         logout();
     };
 
-    const signInOnClick = () => {
+    const signIn = () => {
         loginWithRedirect();
     };
 
-    const dropDown = () => {
-        setIsVisible(!isVisible);
-    };
-
-    const clicked = () => {
-        setIsVisible(false);
-    };
-
     return (
-        <nav className='flex items-center justify-between flex-wrap bg-black p-6'>
-            <div className='flex items-center flex-shrink-0 text-white mr-6'>
-                <Link to='/' className='font-semibold text-xl tracking-tight'>Zachariah Coscarart</Link>
+        <nav className="flex items-center justify-center bg-gray-800 text-white p-4">
+            <div className="flex items-center flex-shrink-0">
+                <Link to="/" className="font-semibold text-xl ml-10 tracking-tight">Zachariah Coscarart</Link>
             </div>
-            <div className='block'>
-                <button onClick={dropDown} className='flex items-center px-3 py-2 text-teal-200 border rounded border-teal-400 hover:text-white hover:border-white'>
-                    <i className='fas fa-bars'></i>
-                </button>
-            </div>
-            { isVisible ? (
-                <div className='w-full block flex-grow items-center justify-center '>
-                    <div className="text-sm lg:flex-grow justify-center">
-                        <Button className='p-3 m-5 bg-orange-400 rounded justify-center'>
-                            <div>
-                                <Link to='/' onClick={ clicked} className='flex place-items-center mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-4'>
-                                    Home
-                                </Link>
-                            </div>
-                        </Button>
-                        <Button className='p-3 m-5 bg-orange-400 rounded justify-center'>
-                            <div>
-                                <Link to='/dashboard' onClick={ clicked} className='flex place-items-center mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-4'>
-                                    Current Projects Dashboard
-                                </Link>
-                            </div>
-                        </Button>
-                        <Button className='p-3 m-5 bg-orange-400 rounded justify-center'>
-                            <div>
-                                <Link to='/CodingTemple' onClick={ clicked} className='flex place-items-center mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-4'>
-                                    Coding Temple Projects
-                                </Link>
-                            </div>
-                        </Button>
-                        {
-                            !isAuthenticated ? 
-                            <Button className='p-3 m-5 bg-orange-400 rounded justify-center'>
-                                <div>
-                                    <Link to="/" onClick={signInOnClick} className='flex place-items-center mt-4 lg:inline-block lg:mt-0 text-black hover:text-white'>
-                                        Login
-                                    </Link>
-                                </div>
-                            </Button>
-                            :
-                            <Button className='p-3 m-5 bg-orange-400 justify-center'>
-                                <div>
-                                    <Link to="/" onClick={signOutOnClick} className='flex place-items-center mt-4 lg:inline-block lg:mt-0 text-black hover:text-white'>
-                                        Sign Out
-                                    </Link>
-                                </div>
-                            </Button>
-                        }
-                    </div>
+            <div className="flex items-center justify-center mr-20 flex-grow">
+                <div className="flex space-x-8">
+                    <Link to="/" className="text-black bg-white px-6 py-3 rounded hover:bg-black hover:text-white">Home</Link>
+                    <Link to="/dashboard" className="text-black bg-white px-8 py-3 rounded hover:bg-black hover:text-white">Current Projects</Link>
+                    <Link to="/CodingTemple" className="text-black bg-white px-8 py-3 rounded hover:bg-black hover:text-white">Coding Temple Projects</Link>
+                    {isAuthenticated ? (
+                        <button onClick={signOut} className="text-black bg-white px-8 py-3 rounded hover:bg-black hover:text-white">Sign Out</button>
+                    ) : (
+                        <button onClick={signIn} className="text-black bg-white px-8 py-3 rounded hover:bg-black hover:text-white">Login</button>
+                    )}
                 </div>
-            ) : (
-                <></>
-            )}
+            </div>
         </nav>
     );
 }
