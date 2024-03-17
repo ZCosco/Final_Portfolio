@@ -3,7 +3,7 @@ import Modal from "./Modal";
 import { server_calls } from '../api/server';
 import { useGetData } from '../custom-hooks/FetchData';
 import { Grid, Paper, Typography, Checkbox, Button } from '@mui/material'; // Import Checkbox from Material-UI
-
+import AuthChecker from '../auth/AuthChecker.tsx';
 
 
 const DataTable = () => {
@@ -58,7 +58,7 @@ const DataTable = () => {
                 open={open}
                 onClose={handleClose}
             />
-            
+            <AuthChecker>
             <div className="flex flex-row justify-center">
                 <div>
                     <button
@@ -71,7 +71,7 @@ const DataTable = () => {
                 <button onClick={handleOpen} className="p-8 text-3xl bg-yellow-400 text-white rounded m-5  hover:bg-slate-800 hover:text-white" >Update Project</button>
                 <button onClick={deleteData} className="p-8 text-3xl bg-red-600 text-white rounded m-5 hover:bg-slate-800 hover:text-white" >Delete Project</button>
             </div>
-  
+            </AuthChecker>
             <div className="container mx-auto ">
                 <h2 className="p-8 bg-black text-white my-2 rounded text-6xl text-center">Current Projects</h2>
                 <Grid container spacing={3}>
@@ -82,16 +82,16 @@ const DataTable = () => {
                                     checked={selectionModel.includes(project.id)}
                                     onChange={() => handleSelectionChange(project.id)}
                                 />
-                                {project.programming_languages && checkImageExists(`/src/assets/images/${project.programming_languages}.jpg`) ? (
+                                {project.programming_languages && checkImageExists(`./src/assets/images/${project.programming_languages}.jpg`) ? (
                                     <img
-                                        src={`/src/assets/images/${project.programming_languages}.jpg`}
+                                        src={`./src/assets/images/${project.programming_languages}.jpg`}
                                         className="mx-auto mb-3"
                                         style={{ maxWidth: '40%', height: 'auto' }}
                                         alt={project.programming_languages}
                                     />
                                 ) : (
                                     <img
-                                        src="/src/assets/images/default.jpg"
+                                        src="./src/assets/images/default.jpg"
                                         className="mx-auto mb-3"
                                         style={{ maxWidth: '40%', height: 'auto' }}
                                         alt="Default"
