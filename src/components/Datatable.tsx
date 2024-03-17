@@ -2,8 +2,9 @@ import { useState } from 'react';
 import Modal from "./Modal";
 import { server_calls } from '../api/server';
 import { useGetData } from '../custom-hooks/FetchData';
-import { Grid, Paper, Typography, Checkbox, Button } from '@mui/material'; // Import Checkbox and Button from Material-UI
+import { Grid, Paper, Typography, Checkbox, Button } from '@mui/material'; // Import Checkbox from Material-UI
 import AuthChecker from '../auth/AuthChecker.tsx';
+
 
 const DataTable = () => {
     const { projectData, getData } = useGetData();
@@ -57,33 +58,20 @@ const DataTable = () => {
                 open={open}
                 onClose={handleClose}
             />
+            <AuthChecker>
             <div className="flex flex-row justify-center">
-                <AuthChecker>
-                    <div>
-                        <Button
-                            className="p-8 text-3xl bg-green-600 text-white rounded m-5 hover:bg-slate-800 hover:text-white"
-                            onClick={handleOpen}
-                            variant="contained"
-                        >
-                            Add new Project
-                        </Button>
-                    </div> 
-                    <Button 
-                        onClick={handleOpen} 
-                        className="p-8 text-3xl bg-yellow-400 text-white rounded m-5  hover:bg-slate-800 hover:text-white" 
-                        variant="contained"
+                <div>
+                    <button
+                        className="p-8 text-3xl bg-green-600 text-white rounded m-5 hover:bg-slate-800 hover:text-white"
+                        onClick={handleOpen}
                     >
-                        Update Project
-                    </Button>
-                    <Button 
-                        onClick={deleteData} 
-                        className="p-8 text-3xl bg-red-600 text-white rounded m-5 hover:bg-slate-800 hover:text-white" 
-                        variant="contained"
-                    >
-                        Delete Project
-                    </Button>
-                </AuthChecker>
+                        Add new Project
+                    </button>
+                </div> 
+                <button onClick={handleOpen} className="p-8 text-3xl bg-yellow-400 text-white rounded m-5  hover:bg-slate-800 hover:text-white" >Update Project</button>
+                <button onClick={deleteData} className="p-8 text-3xl bg-red-600 text-white rounded m-5 hover:bg-slate-800 hover:text-white" >Delete Project</button>
             </div>
+            </AuthChecker>
             <div className="container mx-auto ">
                 <h2 className="p-8 bg-black text-white my-2 rounded text-6xl text-center">Current Projects</h2>
                 <Grid container spacing={3}>
@@ -113,16 +101,16 @@ const DataTable = () => {
                                 <Typography variant="h5" gutterBottom align="center" className="my-2">{project.programming_languages}</Typography>
                                 <Typography variant="h6" gutterBottom align="center" className="my-2">{project.description}</Typography>
                                 <div style={{ display: 'flex', justifyContent: 'center', padding: '20px' }}>
-                                    <Button
-                                        variant="contained"
-                                        color="primary"
-                                        href={project.github_link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        GitHub Repository
-                                    </Button>
-                                </div>
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    href={project.github_link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    GitHub Repository
+                                </Button>
+                            </div>
                             </Paper>
                         </Grid>
                     ))}
