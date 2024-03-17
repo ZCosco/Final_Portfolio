@@ -12,7 +12,7 @@ const PermanentProjectsGrid = () => {
                     <Grid item xs={4} sm={4} md={6} lg={6} key={project.id}>
                         <Paper elevation={3} className="p-6 mt-8">
                             {/* Use url() function for image source */}
-                            <img src='Final_Portfolio/src/assets/images/CT.jpg' className="mx-auto mb-3" style={{ maxWidth: '100%', height: 'auto' }} />
+                            <img src='../assets/images/CT.jpg' className="mx-auto mb-3" style={{ maxWidth: '100%', height: 'auto' }} />
                             <Typography variant="h3" gutterBottom align="center">{project.project_name}</Typography>
                             <Typography variant="h5" gutterBottom align="center" className="my-2">Coding Languages: {project.programming_languages}<br></br><br></br></Typography>
                             <Typography variant="h6" gutterBottom align="center" className="my-2">Project Description: <br></br>{project.description}</Typography>
