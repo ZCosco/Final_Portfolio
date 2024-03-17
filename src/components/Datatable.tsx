@@ -44,6 +44,12 @@ const DataTable = () => {
         setSelectionModel(newSelectionModel);
     }
 
+    const checkImageExists = (url: string) => {
+        const img = new Image();
+        img.src = url;
+        return img.complete || (img.height !== 0);
+    };
+
     return (
         <AuthChecker>
             <Modal 
@@ -73,7 +79,7 @@ const DataTable = () => {
                                     checked={selectionModel.includes(project.id)}
                                     onChange={() => handleSelectionChange(project.id)}
                                 />
-                                {project.programming_languages ? (
+                                {checkImageExists(`https://raw.githubusercontent.com/ZCosco/Final_Portfolio/main/src/assets/images/${project.programming_languages}.jpg`) ? (
                                     <img
                                         src={`https://raw.githubusercontent.com/ZCosco/Final_Portfolio/main/src/assets/images/${project.programming_languages}.jpg`}
                                         className="mx-auto mb-3"
