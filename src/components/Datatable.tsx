@@ -10,6 +10,12 @@ const DataTable = () => {
     const [selectionModel, setSelectionModel] = useState<string[]>([]);
     const [open, setOpen] = useState(false);
 
+    const checkImageExists = (url: string) => {
+        const img = new Image();
+        img.src = url;
+        return img.complete || (img.height !== 0);
+    };
+
     const handleOpen = () => {
         setOpen(true);
     }
@@ -44,12 +50,6 @@ const DataTable = () => {
         setSelectionModel(newSelectionModel);
     }
 
-    const checkImageExists = (url: string) => {
-        const img = new Image();
-        img.src = url;
-        return img.complete || (img.height !== 0);
-    };
-
     return (
         <AuthChecker>
             <Modal 
@@ -74,42 +74,44 @@ const DataTable = () => {
                 <Grid container spacing={3}>
                     {projectData.map((project) => (
                         <Grid item xs={4} sm={4} md={6} lg={6} key={project.id}>
-                            <Paper elevation={3} className="p-6 mt-8 mb-10">
-                                <Checkbox 
-                                    checked={selectionModel.includes(project.id)}
-                                    onChange={() => handleSelectionChange(project.id)}
+                        <Paper elevation={3} className="p-6 mt-8 mb-10">
+                            <Checkbox 
+                                checked={selectionModel.includes(project.id)}
+                                onChange={() => handleSelectionChange(project.id)}
+                            />
+                            {checkImageExists(`https://raw.githubusercontent.com/ZCosco/Final_Portfolio/main/src/assets/images/${project.programming_languages}.jpg`) ? (
+                                <img
+                                    src={`https://raw.githubusercontent.com/ZCosco/Final_Portfolio/main/src/assets/images/${project.programming_languages}.jpg`}
+                                    className="mx-auto mb-3"
+                                    style={{ maxWidth: '40%', height: 'auto' }}
+                                    alt={project.programming_languages} // Use the programming language name as alt text
                                 />
-                                {checkImageExists(`https://raw.githubusercontent.com/ZCosco/Final_Portfolio/main/src/assets/images/${project.programming_languages}.jpg`) ? (
-                                    <img
-                                        src={`https://raw.githubusercontent.com/ZCosco/Final_Portfolio/main/src/assets/images/${project.programming_languages}.jpg`}
-                                        className="mx-auto mb-3"
-                                        style={{ maxWidth: '40%', height: 'auto' }}
-                                        alt={project.programming_languages}
-                                    />
-                                ) : (
-                                    <img
-                                        src="https://raw.githubusercontent.com/ZCosco/Final_Portfolio/main/src/assets/images/default.jpg"
-                                        className="mx-auto mb-3"
-                                        style={{ maxWidth: '40%', height: 'auto' }}
-                                        alt="Default"
-                                    />
-                                )}
-                                <Typography variant="h3" gutterBottom align="center">{project.project_name}</Typography>
-                                <Typography variant="h5" gutterBottom align="center" className="my-2">{project.programming_languages}</Typography>
-                                <Typography variant="h6" gutterBottom align="center" className="my-2">{project.description}</Typography>
-                                <div style={{ display: 'flex', justifyContent: 'center', padding: '20px' }}>
-                                    <Button
-                                        variant="contained"
-                                        color="primary"
-                                        href={project.github_link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        GitHub Repository
-                                    </Button>
-                                </div>
-                            </Paper>
-                        </Grid>
+                            ) : (
+                                <img
+                                    src="https://raw.githubusercontent.com/ZCosco/Final_Portfolio/main/src/assets/images/default.jpg"
+                                    className="mx-auto mb-3"
+                                    style={{ maxWidth: '40%', height: 'auto' }}
+                                    alt="Default" // Use "Default" as alt text
+                                />
+                            )}
+                            <Typography variant="h3" gutterBottom align="center">{project.project_name}</Typography>
+                            <Typography variant="h5" gutterBottom align="center" className="my-2">{project.programming_languages}</Typography>
+                            <Typography variant="h6" gutterBottom align="center" className="my-2">{project.description}</Typography>
+                            <div style={{ display: 'flex', justifyContent: 'center', padding: '20px' }}>
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    href={project.github_link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    GitHub Repository
+                                </Button>
+                            </div>
+                        </Paper>
+                    </Grid>
+                    
+                    
                     ))}
                 </Grid>
             </div>
