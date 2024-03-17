@@ -3,7 +3,7 @@ import Modal from "./Modal";
 import { server_calls } from '../api/server';
 import { useGetData } from '../custom-hooks/FetchData';
 import { Grid, Paper, Typography, Checkbox, Button } from '@mui/material';
-import AuthChecker from '../auth/AuthChecker';
+
 
 const DataTable = () => {
     const { projectData, getData } = useGetData();
@@ -51,7 +51,7 @@ const DataTable = () => {
     }
 
     return (
-        <AuthChecker>
+        <>
             <Modal 
                 id={selectionModel}
                 open={open}
@@ -115,7 +115,7 @@ const DataTable = () => {
                     ))}
                 </Grid>
             </div>
-        </AuthChecker>
+        </>
     )
 }
 
