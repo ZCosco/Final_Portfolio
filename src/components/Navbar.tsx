@@ -15,9 +15,9 @@ function Navbar() {
     return (
         <nav className="flex items-center justify-center bg-gray-800 text-white p-4">
             <div className="flex items-center flex-shrink-0">
-                <Link to="/" className="font-semibold text-xl ml-10 tracking-tight">Zachariah Coscarart</Link>
+                <Link to="https://www.codewars.com/users/ZCosco/" className="font-semibold text-xl tracking-tight"><img src="https://www.codewars.com/users/ZCosco/badges/large" ></img></Link>
             </div>
-            <div className="flex items-center justify-center mr-20 flex-grow">
+            <div className=" items-center justify-center ml-10 flex">
                 <div className="flex space-x-8">
                     <Link to="/" className="text-black bg-white px-6 py-3 rounded hover:bg-black hover:text-white">Home</Link>
                     <Link to="/dashboard" className="text-black bg-white px-8 py-3 rounded hover:bg-black hover:text-white">Current Projects</Link>
