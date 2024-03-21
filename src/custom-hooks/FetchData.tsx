@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { server_calls } from '../api/server'
-import { ProjectType } from './ProjectType'; // Import the ProjectType interface
+import { ProjectType } from './ProjectType'; 
 
 export const useGetData = () => {
     const [ projectData, setData ] = useState<ProjectType[]>([])

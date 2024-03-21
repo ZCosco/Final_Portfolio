@@ -5,5 +5,4 @@ export interface ProjectType {
     programming_languages: string;
     description: string;
     github_link: string;
-    // Add more properties if needed
 }
