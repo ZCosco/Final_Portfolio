@@ -51,6 +51,7 @@ const DataTable = () => {
                 open={open}
                 onClose={handleClose}
             />
+            {!open && (
             <div className="flex flex-row justify-center">
                 <div>
                     <button
@@ -63,6 +64,7 @@ const DataTable = () => {
                 <button onClick={handleOpen} className="p-8 text-3xl bg-yellow-400 text-white rounded m-5  hover:bg-slate-800 hover:text-white" >Update Project</button>
                 <button onClick={deleteData} className="p-8 text-3xl bg-red-600 text-white rounded m-5 hover:bg-slate-800 hover:text-white" >Delete Project</button>
             </div>
+            )}
             {!open && (
             <div className="container mx-auto ">
                 <h2 className="p-8 bg-black text-white my-2 rounded text-6xl text-center">Current Projects</h2>
