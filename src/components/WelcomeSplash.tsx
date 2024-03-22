@@ -3,15 +3,15 @@
 const WelcomeSplash = () => {
     return (
         <div
-            className='flex flex-col justify-center mt-10 items-center bg-cover bg-fixed min-h-screen' // Use min-height to ensure the background covers the entire viewport
+            className='flex flex-col justify-center mt-10 items-center bg-cover bg-fixed min-h-screen' 
         >
             {/* Welcome to My Portfolio */}
             <div className='flex place-items-center mb-20 bg-gray-900 text-white py-10 px-8 rounded-lg'>
-                <h3 className='p-5 text-white rounded text-5xl'>Zachariah Coscarart <br></br> Portfolio </h3>
+                <h3 className='p-5 text-white rounded text-5xl'>Zachariah Coscarart <br></br> <div className='text-center'>Portfolio 2024</div> </h3>
             </div>
 
             {/* About Me Section */}
-            <div className="bg-gray-900 text-white py-10 px-8 rounded-lg mb-10 max-w-3xl text-center"> {/* Limit the maximum width */}
+            <div className="bg-gray-900 text-white py-10 px-8 rounded-lg mb-10 max-w-3xl text-center"> 
                 <h2 className="text-4xl font-bold mb-4">Welcome</h2>
                 <p className="text-xl mb-4">
                     Hello all! My name is Zachariah Coscarart and I am currently a Coding Temple student taking the Software Development self-paces course. I currently live in Spokane, Washington!
@@ -29,13 +29,13 @@ const WelcomeSplash = () => {
             </div>
             
             {/* Contact Me Section */}
-            <div className="bg-gray-900 text-white text-center py-10 px-8 rounded-lg mt-10 mb-10 max-w-3xl"> {/* Limit the maximum width */}
+            <div className="bg-gray-900 text-white text-center py-10 px-8 rounded-lg mt-10 mb-10 max-w-3xl"> 
                 <h2 className="text-4xl font-bold mb-4">Contact Me:</h2>
                 <p className="text-2xl mb-2">
-                    Email: <a href="mailto:zachcoscarart@gmail.com" className="text-blue-500 hover:underline">zachcoscarart@gmail.com</a>
+                    Email: <a href="mailto:zachcoscarart@gmail.com" className="text-blue-500 hover:underline"><i className="fa-regular fa-envelope"></i> zachcoscarart@gmail.com</a>
                 </p>
                 <p className="text-2xl">
-                    Phone: <span className="text-blue-500">(509) 379-7430</span>
+                    Phone: <span className="text-blue-500"><i className="fa-solid fa-phone"></i> (509) 379-7430</span>
                 </p>
             </div>
         </div>
