@@ -70,6 +70,7 @@ const DataTable = () => {
                         <Grid item xs={4} sm={4} md={6} lg={6} key={project.id}>
                             <Paper elevation={3} className="p-6 mt-8 mb-10">
                                 <Checkbox 
+                                    className='z-0'
                                     checked={selectionModel.includes(project.id)}
                                     onChange={() => handleSelectionChange(project.id)}
                                 />
