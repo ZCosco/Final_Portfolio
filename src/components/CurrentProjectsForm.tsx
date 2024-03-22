@@ -22,7 +22,6 @@ const CurrentProjectsForm = (props: CurrentProjectsFormProps) => {
     if (props.id && props.id.length > 0) {
       await server_calls.update(props.id[0], data);
       console.log(`Updated: ${data.project_name} ${data.description} ${props.id}`);
-      setTimeout(() => { window.location.reload() }, 500);
     } else {
       dispatch(chooseProjectName(data.project_name));
       dispatch(chooseDescription(data.description));
@@ -30,8 +29,8 @@ const CurrentProjectsForm = (props: CurrentProjectsFormProps) => {
       dispatch(chooseProgrammingLanguages(data.programming_languages));
 
       server_calls.create(store.getState())
-      setTimeout(() => {window.location.reload()}, 500)
     }
+    window.location.reload();
   }
 
   return (

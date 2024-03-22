@@ -12,7 +12,6 @@ const DataTable = () => {
 
     const handleOpen = () => {
         setOpen(true);
-        window.location.reload();
     }
 
     const handleClose = () => {
