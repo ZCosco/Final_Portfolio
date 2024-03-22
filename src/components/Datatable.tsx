@@ -12,6 +12,7 @@ const DataTable = () => {
 
     const handleOpen = () => {
         setOpen(true);
+        window.location.reload();
     }
 
     const handleClose = () => {
@@ -22,6 +23,7 @@ const DataTable = () => {
         server_calls.delete(selectionModel[0]);
         getData();
         console.log(`Selection model: ${selectionModel}`);
+        window.location.reload();
     }
 
     const handleSelectionChange = (id: string) => {
