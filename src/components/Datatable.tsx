@@ -63,6 +63,7 @@ const DataTable = () => {
                 <button onClick={handleOpen} className="p-8 text-3xl bg-yellow-400 text-white rounded m-5  hover:bg-slate-800 hover:text-white" >Update Project</button>
                 <button onClick={deleteData} className="p-8 text-3xl bg-red-600 text-white rounded m-5 hover:bg-slate-800 hover:text-white" >Delete Project</button>
             </div>
+            {!open && (
             <div className="container mx-auto ">
                 <h2 className="p-8 bg-black text-white my-2 rounded text-6xl text-center">Current Projects</h2>
                 <Grid container spacing={3}>
@@ -70,7 +71,6 @@ const DataTable = () => {
                         <Grid item xs={4} sm={4} md={6} lg={6} key={project.id}>
                             <Paper elevation={3} className="p-6 mt-8 mb-10">
                                 <Checkbox 
-                                    className='z-0'
                                     checked={selectionModel.includes(project.id)}
                                     onChange={() => handleSelectionChange(project.id)}
                                 />
@@ -101,6 +101,7 @@ const DataTable = () => {
                     ))}
                 </Grid>
             </div>
+            )}
         </AuthChecker>
     )
 }
