@@ -22,7 +22,7 @@ const DataTable = () => {
         server_calls.delete(selectionModel[0]);
         getData();
         console.log(`Selection model: ${selectionModel}`);
-        window.location.reload();
+        setTimeout(() => {window.location.reload()}, 500)
     }
 
     const handleSelectionChange = (id: string) => {
