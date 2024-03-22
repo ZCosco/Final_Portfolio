@@ -78,7 +78,7 @@ const DataTable = () => {
                                         src={`https://raw.githubusercontent.com/ZCosco/Final_Portfolio/main/src/assets/images/${project.programming_languages}.jpg`}
                                         className="mx-auto mb-3"
                                         style={{ maxWidth: '40%', height: 'auto' }}
-                                        alt={project.programming_languages} // Use the programming language name as alt text
+                                        alt={project.programming_languages} 
                                     />
                                 </ErrorBoundary>
                                 <Typography variant="h3" gutterBottom align="center">{project.project_name}</Typography>
@@ -119,7 +119,7 @@ const ErrorBoundary = ({ children }: { children: React.ReactNode }) => {
                     src="https://raw.githubusercontent.com/ZCosco/Final_Portfolio/main/src/assets/images/default.jpg"
                     className="mx-auto mb-3"
                     style={{ maxWidth: '40%', height: 'auto' }}
-                    alt="Default" // Use "Default" as alt text
+                    alt="Default" 
                 />
             ) : (
                 <img
