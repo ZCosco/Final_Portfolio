@@ -12,11 +12,11 @@ const Modal = ( props: Props ) => {
         <div 
             onClick={ props.onClose } 
             className='fixed w-full h-full flex overflow-auto z-1 
-            justify-center align-middle bg-gray-300 bg-opacity-25'
+            justify-center align-middle bg-opacity-25'
         
         >
             <div
-                className='max-w-600px w-2/5 fixed flex z-1 mt-20 bg-white shadow-xl rounded'
+                className='max-w-600px w-2/5 fixed flex z-2 mt-20 bg-white shadow-xl rounded'
                 onClick={(e) => {
                     e.stopPropagation()
                 }}
