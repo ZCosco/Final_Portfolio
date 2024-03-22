@@ -19,7 +19,7 @@ function Navbar() {
             </div>
             <div className=" items-center justify-center ml-10 flex">
                 <div className="flex space-x-8">
-                    <Link to="/" className="text-black bg-white px-6 py-3 rounded hover:bg-black hover:text-white">Home</Link>
+                    <Link to="/" className="text-black bg-white px-6 py-3 rounded hover:bg-black hover:text-white"><i className="fa-solid fa-house"></i></Link>
                     <Link to="/dashboard" className="text-black bg-white px-8 py-3 rounded hover:bg-black hover:text-white">Current Projects</Link>
                     <Link to="/CodingTemple" className="text-black bg-white px-8 py-3 rounded hover:bg-black hover:text-white">Coding Temple Projects</Link>
                     {isAuthenticated ? (
