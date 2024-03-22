@@ -16,7 +16,7 @@ const Modal = ( props: Props ) => {
         
         >
             <div
-                className='max-w-600px w-2/5 fixed flex z-2 mt-20 bg-white shadow-xl rounded'
+                className='max-w-600px w-2/5 fixed flex z-50 mt-20 bg-white shadow-xl rounded'
                 onClick={(e) => {
                     e.stopPropagation()
                 }}
